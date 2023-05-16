@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>snake</title>
+    <script src="./assets/app.js" defer></script>
+</head>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Sigmar', cursive;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        background-color: beige;
+    }
+
+    #appTitle {
+        position: absolute;
+        top: 20px;
+    }
+
+    #gameInterface {
+        display: none;
+    }
+
+    #playBoard {
+        border: 1px solid black;
+        height: 70vmin;
+        aspect-ratio: 1 / 1;
+        background-color: rgb(33, 40, 56);
+        border-radius: 5px;
+        display: grid;
+    }
+
+    #scoreBoard {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(67, 72, 85);
+        border-radius: 5px;
+        color: white;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        width: 70vmin;
+    }
+
+    #score {
+        display: inline-block;
+        text-align: center;
+        padding: .5rem;
+        width: 100px;
+        background-color: aliceblue;
+        color: lightcoral;
+        font-size: 1.5rem;
+        border-radius: 5px;
+    }
+
+    .food {
+        background-color: red;
+        border-radius: 5px;
+    }
+
+    .snake {
+        background-color: lightgreen;
+        border-radius: 5px;
+    }
+
+    #gridSizeModal,
+    #resultModal {
+        background-color: aliceblue;
+        padding: 1rem;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    #resultModal {
+        display: none;
+        z-index: 999;
+    }
+
+    #resultModal>.title {
+        color: crimson;
+    }
+
+    .btn {
+        cursor: pointer;
+        border-radius: 5px;
+        margin: 15px auto;
+        color: aliceblue;
+        background-color: rgb(67, 72, 85);
+        width: 100px;
+        text-align: center;
+    }
+
+    #snakeSvg {
+        border: 1px solid red;
+        width: 500px;
+        height: 500px;
+    }
+</style>
+
+<body>
+
+    <h1 id="appTitle">Snake</h1>
+
+    <div id="gridSizeModal">
+        <h2>Dimensione griglia</h2>
+        <div onclick="setGrid(20)" class="btn">Piccola</div>
+        <div onclick="setGrid(30)" class="btn">Media</div>
+        <div onclick="setGrid(40)" class="btn">Grande</div>
+    </div>
+
+    <div id="resultModal">
+        <h2 class="title">GAME OVER</h2>
+        <p id="resultMsg"></p>
+    </div>
+
+    <div id="gameInterface">
+        <div id="scoreBoard">PUNTEGGIO <span id="score">0</span></div>
+        <div id="playBoard"></div>
+    </div>
+    
+</body>
+
+</html>
